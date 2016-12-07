@@ -17,7 +17,7 @@ export default class routinephone extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          This is the routine app
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.android.js
