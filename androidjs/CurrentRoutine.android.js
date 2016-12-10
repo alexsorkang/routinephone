@@ -4,31 +4,24 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  ToolbarAndroid
 } from 'react-native';
 
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon } from 'native-base';
+// import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon } from 'native-base';
 
 export default class CurrentRoutine extends Component {
   render() {
     return (
       <View>
-        <Container> 
-          <Header>
-            <Title>Header</Title>
-          </Header>
-          <Content>
-            this one
-          </Content>
 
-          <Footer>
-            <FooterTab>
-                <Button transparent>
-                    <Icon name='ios-call' />
-                </Button>  
-            </FooterTab>
-          </Footer>
-        </Container>
+        <ToolbarAndroid
+        // logo={require('./leftcarrot')}
+        title="AwesomeApp"
+        style={styles.titlebar}
+        // actions={[{title: 'Settings', icon: require('./hamburger.png'), show: 'always'}]}
+        onActionSelected={this.props.onBack} />
+
 
         <View style={styles.container}>
           <TouchableHighlight underlayColor={'gray'} onPress={this.props.onForward}>
@@ -48,8 +41,6 @@ const styles = StyleSheet.create({
   titlebar: {
     // flex: 1,
     height: 50,
-    borderBottomWidth: 1,
-    borderColor: 'gray',
     // color: 'black',
   },
   container: {

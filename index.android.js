@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 // import CurrentRoutine from './androidjs/CurrentRoutine.android.js'
-import CurrentRoutine from './CurrentRoutine.android.js'
+import CurrentRoutine from './androidjs/CurrentRoutine.android.js'
 
 export default class routinephone extends Component {
   // render() {
