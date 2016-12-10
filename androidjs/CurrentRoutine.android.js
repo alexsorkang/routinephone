@@ -5,23 +5,35 @@ import {
   Text,
   View,
   TouchableHighlight,
-  ToolbarAndroid
+  ToolbarAndroid,
+  Ionicons,
+  IconList,
+  IconSetList
 } from 'react-native';
+// import Ionicons from 'react-native-vector-icons/Ionicons';
+// import IconSetList from './IconSetList';
+// import IconList from './IconList';
 
-// import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon } from 'native-base';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon } from 'native-base';
 
 export default class CurrentRoutine extends Component {
   render() {
     return (
       <View>
 
-        <ToolbarAndroid
-        // logo={require('./leftcarrot')}
-        title="AwesomeApp"
-        style={styles.titlebar}
-        // actions={[{title: 'Settings', icon: require('./hamburger.png'), show: 'always'}]}
-        onActionSelected={this.props.onBack} />
-
+        <Container>
+                <Header>
+                    <Button transparent>
+                        <Icon name='ios-arrow-back' />
+                    </Button>
+                    
+                    <Title>Header</Title>
+                    
+                    <Button transparent>
+                        <Icon name='ios-menu' />
+                    </Button>
+                </Header>
+            </Container>
 
         <View style={styles.container}>
           <TouchableHighlight underlayColor={'gray'} onPress={this.props.onForward}>
