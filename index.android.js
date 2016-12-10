@@ -9,39 +9,90 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator
 } from 'react-native';
 
+// import CurrentRoutine from './androidjs/CurrentRoutine.android.js'
+import CurrentRoutine from './CurrentRoutine.android.js'
+
 export default class routinephone extends Component {
+  // render() {
+  //   return (
+  //     <View style={styles.container}>
+  //       <View style={styles.headerblack}></View>
+  //       <View style={styles.headerpink}></View>
+  //       <View style={styles.headerblack}></View>
+  //     </View>
+  //   );
+  // }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          This is the routine app
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <Navigator
+        initialRoute={{ title: 'Routine', index: 0 }}
+        renderScene={(route, navigator) =>
+          <CurrentRoutine
+            title={route.title}
+
+            // Function to call when a new scene should be displayed
+            onForward={() => {    
+              const nextIndex = route.index + 1;
+              navigator.push({
+                title: 'Scene ' + nextIndex,
+                index: nextIndex,
+              });
+            }}
+
+            // Function to call to go back to the previous scene
+            onBack={() => {
+              if (route.index > 0) {
+                navigator.pop();
+              }
+            }}
+          />
+        }
+      />
+    )
+  }
+}
+        // <Outer data="one"/>
+        // <Outer data="two"/>
+        // <Outer data="three"/>
+class Outer extends Component {
+  render() {
+    return (
+      <Text>
+        {this.props.data}
+      </Text>
     );
   }
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flexDirection: 'row',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // backgroundColor: '#F5FCFF',
   },
-  welcome: {
+  centertext: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+  },
+  headerblack: {
+    // width: 50,
+    flex: 1,
+    height: 50,
+    backgroundColor: 'black',
+  },
+  headerpink: {
+    // width: 50,
+    flex: 1,
+    height: 50,
+    backgroundColor: 'pink',
   },
   instructions: {
     textAlign: 'center',
