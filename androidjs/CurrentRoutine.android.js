@@ -3,68 +3,60 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View,
-  TouchableHighlight,
-  ToolbarAndroid,
-  Ionicons,
-  IconList,
-  IconSetList
+  View
 } from 'react-native';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 // import IconSetList from './IconSetList';
 // import IconList from './IconList';
 
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon } from 'native-base';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem } from 'native-base';
 
 export default class CurrentRoutine extends Component {
   render() {
     return (
-      <View>
-
         <Container>
-                <Header>
-                    <Button transparent>
-                        <Icon name='ios-arrow-back' />
-                    </Button>
-                    
-                    <Title>Header</Title>
-                    
-                    <Button transparent>
-                        <Icon name='ios-menu' />
-                    </Button>
-                </Header>
-            </Container>
 
-        <View style={styles.container}>
-          <TouchableHighlight underlayColor={'gray'} onPress={this.props.onForward}>
-            <Text style={styles.optiontext}>option 1</Text>
-          </TouchableHighlight>
+          <Header style={styles.header}>
+            <Button onPress={this.props.onBack} transparent>
+              <Icon style={styles.iconcolor} name='ios-arrow-back' />
+            </Button>
+            
+            <Title style={styles.titletext}>{this.props.title}</Title>
+            
+            <Button transparent>
+              <Icon style={styles.iconcolor} name='ios-menu' />
+            </Button>
+          </Header>
 
-          <TouchableHighlight underlayColor={'gray'} onPress={this.props.onBack}>
-            <Text style={styles.optiontext}>option 2</Text>
-          </TouchableHighlight>
-        </View>
-      </View>
+          <Content>
+            <List>
+              <ListItem button onPress={this.props.onForward}>
+                <Text style={styles.optiontext}>option 1</Text>
+              </ListItem>
+              <ListItem button onPress={this.props.onBack}>
+                <Text style={styles.optiontext}>option 2</Text>
+              </ListItem>
+            </List>
+          </Content>
+
+        </Container>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  titlebar: {
-    // flex: 1,
-    height: 50,
-    // color: 'black',
+  header: {
+    backgroundColor: '#F8F8F8'
   },
-  container: {
-    // flex: 1,
-    // flexDirection: 'row',
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // backgroundColor: '#F5FCFF',
+  iconcolor: {
+    color: 'black'
+  },
+  titletext: {
+    color: 'black'
   },
   optiontext: {
-    padding: 10,
-    fontSize: 20,
+    // padding: 10,
+    // fontSize: 20,
     color: 'black',
   },
   centertext: {
