@@ -13,9 +13,11 @@ import {
   Navigator
 } from 'react-native';
 
-// import CurrentRoutine from './androidjs/CurrentRoutine.android.js'
-import CurrentRoutine from './androidjs/CurrentRoutine.android.js'
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem, Tabs } from 'native-base';
 
+import CurrentRoutine from './androidjs/CurrentRoutine.android.js'
+import Progress from './androidjs/Progress.android.js'
+import PublicRoutines from './androidjs/PublicRoutines'
 export default class routinephone extends Component {
   // render() {
   //   return (
@@ -28,30 +30,51 @@ export default class routinephone extends Component {
   // }
   render() {
     return (
-      <Navigator
-        initialRoute={{ title: 'Routine', index: 0 }}
-        renderScene={(route, navigator) =>
-          <CurrentRoutine
-            title={route.title}
+      <Container>
+        <Header style={styles.header}>
+            <Button onPress={this.props.onBack} transparent>
+              <Icon style={styles.iconcolor} name={'ios-arrow-back'} />
+            </Button>
+            
+            <Title style={styles.titletext}>Routineapp</Title>
+            
+            <Button transparent>
+              <Icon style={styles.iconcolor} name='ios-menu' />
+            </Button>
+          </Header>
+          
+        <Content>
+          <Tabs>
+            <CurrentRoutine tabLabel='Current' />
+            <Progress tabLabel='Progress' />
+            <PublicRoutines tabLabel='Public' />
+          </Tabs>
+          <Navigator
+            initialRoute={{ title: 'Routine', index: 0 }}
+            renderScene={(route, navigator) =>
+              <CurrentRoutine
+                title={route.title}
 
-            // Function to call when a new scene should be displayed
-            onForward={() => {    
-              const nextIndex = route.index + 1;
-              navigator.push({
-                title: 'Scene ' + nextIndex,
-                index: nextIndex,
-              });
-            }}
+                // Function to call when a new scene should be displayed
+                onForward={() => {    
+                  const nextIndex = route.index + 1;
+                  navigator.push({
+                    title: 'Scene ' + nextIndex,
+                    index: nextIndex,
+                  });
+                }}
 
-            // Function to call to go back to the previous scene
-            onBack={() => {
-              if (route.index > 0) {
-                navigator.pop();
-              }
-            }}
+                // Function to call to go back to the previous scene
+                onBack={() => {
+                  if (route.index > 0) {
+                    navigator.pop();
+                  }
+                }}
+              />
+            }
           />
-        }
-      />
+        </Content>
+      </Container>
     )
   }
 }
@@ -70,17 +93,26 @@ class Outer extends Component {
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // backgroundColor: '#F5FCFF',
+  header: {
+    backgroundColor: '#F8F8F8'
+  },
+  iconcolor: {
+    color: 'black'
+  },
+  titletext: {
+    color: 'black'
+  },
+  optiontext: {
+    // padding: 10,
+    // fontSize: 20,
+    color: 'black',
   },
   centertext: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    justifyContent: 'center',
+    color: 'black',
   },
   headerblack: {
     // width: 50,

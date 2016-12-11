@@ -16,14 +16,7 @@ export default class CurrentRoutine extends Component {
     return (
         <Container>
           <Content>
-            <List>
-              <ListItem button onPress={this.props.onForward}>
-                <Text style={styles.optiontext}>option 1</Text>
-              </ListItem>
-              <ListItem button onPress={this.props.onBack}>
-                <Text style={styles.optiontext}>option 2</Text>
-              </ListItem>
-            </List>
+            <Text>Public Page</Text>
           </Content>
 
         </Container>
@@ -42,8 +35,8 @@ const styles = StyleSheet.create({
     color: 'black'
   },
   optiontext: {
-    // padding: 10,
-    // fontSize: 20,
+    padding: 10,
+    fontSize: 20,
     color: 'black',
   },
   centertext: {
