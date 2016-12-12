@@ -18,6 +18,7 @@ import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, Lis
 import CurrentRoutine from './androidjs/CurrentRoutine.android.js'
 import Progress from './androidjs/Progress.android.js'
 import PublicRoutines from './androidjs/PublicRoutines'
+import Exerciselist from './androidjs/Exerciselist'
 export default class routinephone extends Component {
   // render() {
   //   return (
@@ -28,9 +29,11 @@ export default class routinephone extends Component {
   //     </View>
   //   );
   // }
+  // {name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',5,5],['deadlift',1,5]]]},difficulty:'novice'}
   render() {
     return (
       <Container>
+
         <Header style={styles.header}>
             <Button onPress={this.props.onBack} transparent>
               <Icon style={styles.iconcolor} name={'ios-arrow-back'} />
@@ -42,40 +45,35 @@ export default class routinephone extends Component {
               <Icon style={styles.iconcolor} name='ios-menu' />
             </Button>
           </Header>
-          
+
         <Content>
           <Tabs>
-            <CurrentRoutine tabLabel='Current' />
+            
+            <Navigator
+              initialRoute={{ id: 'Routine', index: 0 }}
+              renderScene = {this.renderScene.bind(this)}
+              tabLabel='Current'
+            />
             <Progress tabLabel='Progress' />
             <PublicRoutines tabLabel='Public' />
           </Tabs>
-          <Navigator
-            initialRoute={{ title: 'Routine', index: 0 }}
-            renderScene={(route, navigator) =>
-              <CurrentRoutine
-                title={route.title}
-
-                // Function to call when a new scene should be displayed
-                onForward={() => {    
-                  const nextIndex = route.index + 1;
-                  navigator.push({
-                    title: 'Scene ' + nextIndex,
-                    index: nextIndex,
-                  });
-                }}
-
-                // Function to call to go back to the previous scene
-                onBack={() => {
-                  if (route.index > 0) {
-                    navigator.pop();
-                  }
-                }}
-              />
-            }
-          />
         </Content>
       </Container>
     )
+  }
+  renderScene(route, navigator) {
+    var routeid = route.id;
+    if (routeid === 'Routine') {
+      return (
+        <CurrentRoutine navigator={navigator}/>
+        );
+    }
+    if (routeid === 'exerciselist') {
+      return (
+        <Exerciselist navigator={navigator}/>
+        );
+        )
+    }
   }
 }
         // <Outer data="one"/>

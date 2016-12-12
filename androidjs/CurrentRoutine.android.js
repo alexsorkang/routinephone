@@ -3,31 +3,65 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator
 } from 'react-native';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 // import IconSetList from './IconSetList';
 // import IconList from './IconList';
-
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem } from 'native-base';
 
 export default class CurrentRoutine extends Component {
+  // routine = {name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',5,5],['deadlift',1,5]]]},difficulty:'novice'}
   render() {
     return (
-        <Container>
-          <Content>
-            <List>
-              <ListItem button onPress={this.props.onForward}>
-                <Text style={styles.optiontext}>option 1</Text>
-              </ListItem>
-              <ListItem button onPress={this.props.onBack}>
-                <Text style={styles.optiontext}>option 2</Text>
-              </ListItem>
-            </List>
-          </Content>
-
-        </Container>
+      <Navigator
+        renderScene={this.renderScene.bind(this)}
+        />
     )
+  }
+  renderScene(route, navigator) {
+    return (
+      <Container>
+        <Content>
+          <List>
+            <ListItem>
+              <Text>one</Text>
+            </ListItem>
+
+            <ListItem>
+              <Text>one</Text>
+            </ListItem>
+
+            <ListItem>
+              <Text>one</Text>
+            </ListItem>
+
+            <ListItem>
+              <Text style={styles.optiontext}>CurrentRoutine</Text> 
+            </ListItem>
+
+            <ListItem button onPress={this.onForward.bind(this)}>
+              <Text style={styles.optiontext}>option 1</Text>
+            </ListItem>
+
+            <ListItem button onPress={this.onBack.bind(this)}>
+              <Text style={styles.optiontext}>option 2</Text>
+            </ListItem>
+
+          </List>
+        </Content>
+      </Container>
+      )
+  }
+  onForward() {
+    this.props.navigator.push({
+      id: 'exerciselist',
+      index: 1,
+    })
+  }
+  onBack() {
+    this.props.navigator.pop()
   }
 }
 
@@ -52,18 +86,6 @@ const styles = StyleSheet.create({
     margin: 10,
     justifyContent: 'center',
     color: 'black',
-  },
-  headerblack: {
-    // width: 50,
-    flex: 1,
-    height: 50,
-    backgroundColor: 'black',
-  },
-  headerpink: {
-    // width: 50,
-    flex: 1,
-    height: 50,
-    backgroundColor: 'pink',
   },
   instructions: {
     textAlign: 'center',
