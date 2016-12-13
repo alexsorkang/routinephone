@@ -11,13 +11,12 @@ import {
 // import IconList from './IconList';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem, Tabs} from 'native-base';
 
-// import CurrentRoutine from './CurrentRoutine.android.js'
+import CurrentRoutine from './CurrentRoutine.android.js'
 import Progress from './Progress.android.js'
 import PublicRoutines from './PublicRoutines'
-import Exerciselist from './Exerciselist'
 
 
-export default class CurrentRoutine extends Component {
+export default class Headerpage extends Component {
   render() {
     return (
       <Navigator
@@ -30,14 +29,23 @@ export default class CurrentRoutine extends Component {
     return (
 
       <Container>
-
+        <Header style={styles.header}>
+          <Button onPress={this.props.onBack} transparent>
+            <Icon style={styles.iconcolor} name='ios-arrow-back' />
+          </Button>
+          
+          <Title style={styles.titletext}>Routineapp</Title>
+          
+          <Button transparent>
+            <Icon style={styles.iconcolor} name='ios-menu' />
+          </Button>
+        </Header>
         <Content>
-          <List dataArray = {stronglift.routine['list']} renderRow={(exercise) => 
-            <ListItem button onPress={this.onForward.bind(this)}>
-              <Text style={styles.optiontext}> dayone {exercise[0][0]} </Text>
-            </ListItem>
-            }>
-          </List>
+          <Tabs>
+            <CurrentRoutine tabLabel='Current' />
+            <Progress tabLabel='Progress' />
+            <PublicRoutines tabLabel='Public'/>
+          </Tabs>
         </Content>
       </Container>
       )

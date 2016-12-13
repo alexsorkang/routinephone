@@ -9,14 +9,52 @@ import {
 // import IconSetList from './IconSetList';
 // import IconList from './IconList';
 
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem } from 'native-base';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem, Tabs } from 'native-base';
 
-export default class CurrentRoutine extends Component {
+import CurrentRoutine from './CurrentRoutine.android.js'
+// import Progress from './Progress.android.js'
+import PublicRoutines from './PublicRoutines'
+import Exerciselist from './Exerciselist'
+
+
+export default class Progress extends Component {
   render() {
     return (
         <Container>
+          <Header style={styles.header}>
+            <Button onPress={this.props.onBack} transparent>
+              <Icon style={styles.iconcolor} name='ios-arrow-back' />
+            </Button>
+            
+            <Title style={styles.titletext}>Routineapp</Title>
+            
+            <Button transparent>
+              <Icon style={styles.iconcolor} name='ios-menu' />
+            </Button>
+
+          </Header>
           <Content>
             <Text>Public Page</Text>
+            <List>
+              <ListItem>
+                <Text>o11</Text>
+              </ListItem>
+              <ListItem>
+                <Text>o11</Text>
+              </ListItem>
+              <ListItem>
+                <Text>o11</Text>
+              </ListItem>
+              <ListItem>
+                <Text>o11</Text>
+              </ListItem>
+              <ListItem>
+                <Text>o11</Text>
+              </ListItem>
+              <ListItem>
+                <Text>o11</Text>
+              </ListItem>
+            </List>
           </Content>
 
         </Container>

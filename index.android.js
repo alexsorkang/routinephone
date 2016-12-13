@@ -19,61 +19,38 @@ import CurrentRoutine from './androidjs/CurrentRoutine.android.js'
 import Progress from './androidjs/Progress.android.js'
 import PublicRoutines from './androidjs/PublicRoutines'
 import Exerciselist from './androidjs/Exerciselist'
+import Headerpage from './androidjs/Headerpage'
+
 export default class routinephone extends Component {
-  // render() {
-  //   return (
-  //     <View style={styles.container}>
-  //       <View style={styles.headerblack}></View>
-  //       <View style={styles.headerpink}></View>
-  //       <View style={styles.headerblack}></View>
-  //     </View>
-  //   );
-  // }
-  // {name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',5,5],['deadlift',1,5]]]},difficulty:'novice'}
   render() {
     return (
-      <Container>
-
-        <Header style={styles.header}>
-            <Button onPress={this.props.onBack} transparent>
-              <Icon style={styles.iconcolor} name={'ios-arrow-back'} />
-            </Button>
-            
-            <Title style={styles.titletext}>Routineapp</Title>
-            
-            <Button transparent>
-              <Icon style={styles.iconcolor} name='ios-menu' />
-            </Button>
-          </Header>
-
-        <Content>
-          <Tabs>
-            
-            <Navigator
-              initialRoute={{ id: 'Routine', index: 0 }}
-              renderScene = {this.renderScene.bind(this)}
-              tabLabel='Current'
-            />
-            <Progress tabLabel='Progress' />
-            <PublicRoutines tabLabel='Public' />
-          </Tabs>
-        </Content>
-      </Container>
+          <Navigator
+            initialRoute={{ id: 'Routine', index: 0 }}
+            renderScene = {this.renderScene.bind(this)}
+            tabLabel='Current'
+            onBack={() => {
+            if (route.index > 0) {
+                navigator.pop();
+              }
+            }}
+          />
     )
   }
   renderScene(route, navigator) {
     var routeid = route.id;
     if (routeid === 'Routine') {
       return (
-        <CurrentRoutine navigator={navigator}/>
+        <Headerpage navigator={navigator}/>
         );
     }
     if (routeid === 'exerciselist') {
       return (
         <Exerciselist navigator={navigator}/>
         );
-        )
     }
+  }
+  onBack() {
+    navigator.pop()
   }
 }
         // <Outer data="one"/>
