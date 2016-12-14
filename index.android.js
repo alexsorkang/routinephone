@@ -24,30 +24,27 @@ import Headerpage from './androidjs/Headerpage'
 export default class routinephone extends Component {
   render() {
     return (
-          <Navigator
-            initialRoute={{ id: 'Routine', index: 0 }}
-            renderScene = {this.renderScene.bind(this)}
-            tabLabel='Current'
-            onBack={() => {
-            if (route.index > 0) {
-                navigator.pop();
-              }
-            }}
-          />
+        <Container>
+          <Header style={styles.header}>
+            <Button transparent>
+              <Icon style={styles.iconcolor} name='ios-arrow-back' />
+            </Button>
+            
+            <Title style={styles.titletext}>Routineapp</Title>
+            
+            <Button transparent>
+              <Icon style={styles.iconcolor} name='ios-menu' />
+            </Button>
+          </Header>
+          <Content>
+            <Tabs>
+              <CurrentRoutine tabLabel='Current' />
+              <Progress tabLabel='Progress' />
+              <PublicRoutines tabLabel='Public' />
+            </Tabs>
+          </Content>
+        </Container>
     )
-  }
-  renderScene(route, navigator) {
-    var routeid = route.id;
-    if (routeid === 'Routine') {
-      return (
-        <Headerpage navigator={navigator}/>
-        );
-    }
-    if (routeid === 'exerciselist') {
-      return (
-        <Exerciselist navigator={navigator}/>
-        );
-    }
   }
   onBack() {
     navigator.pop()

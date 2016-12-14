@@ -44,7 +44,7 @@ export default class Headerpage extends Component {
           <Tabs>
             <CurrentRoutine tabLabel='Current' />
             <Progress tabLabel='Progress' />
-            <PublicRoutines tabLabel='Public'/>
+            <PublicRoutines tabLabel='Public' />
           </Tabs>
         </Content>
       </Container>
