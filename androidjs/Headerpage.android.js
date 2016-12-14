@@ -30,7 +30,7 @@ export default class Headerpage extends Component {
 
       <Container>
         <Header style={styles.header}>
-          <Button onPress={this.props.onBack} transparent>
+          <Button onPress={this.onBack.bind(this)} transparent>
             <Icon style={styles.iconcolor} name='ios-arrow-back' />
           </Button>
           
@@ -41,18 +41,33 @@ export default class Headerpage extends Component {
           </Button>
         </Header>
         <Content>
-          <Tabs>
-            <CurrentRoutine tabLabel='Current' />
-            <Progress tabLabel='Progress' />
-            <PublicRoutines tabLabel='Public' />
-          </Tabs>
         </Content>
+        <Footer >
+          <FooterTab style={styles.footerstyle} tabBarTextColor='black'>
+              <Button onPress={this.onForward.bind(this)}>
+                  <Text style={styles.optiontext}> Current </Text>
+                  <Icon style={styles.iconcolor} name='ios-apps-outline' />
+              </Button>
+              <Button>
+                  Camera
+                  <Icon name='ios-camera-outline' style={styles.iconcolor}/>
+              </Button>
+              <Button>
+                  Navigate
+                  <Icon name='ios-compass' style={styles.iconcolor}/>
+              </Button>
+              <Button>
+                  Contact
+                  <Icon name='ios-contact-outline' style={styles.iconcolor}/>
+              </Button>
+          </FooterTab>
+      </Footer>
       </Container>
       )
   }
   onForward() {
     this.props.navigator.push({
-      id: 'exerciselist',
+      id: 'daylist',
       index: 1,
     })
   }
@@ -63,6 +78,9 @@ export default class Headerpage extends Component {
 
 const styles = StyleSheet.create({
   header: {
+    backgroundColor: '#F8F8F8'
+  },
+  footerstyle: {
     backgroundColor: '#F8F8F8'
   },
   iconcolor: {

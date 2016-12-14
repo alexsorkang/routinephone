@@ -28,8 +28,19 @@ export default class Daylist extends Component {
   renderScene(route, navigator) {
     var stronglift = {name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['rest',0,0]],[['rest',0,0]],[['ohp',5,5],['deadlift',1,5]]]},difficulty:'novice'}
     return (
-
       <Container>
+        <Header style={styles.header}>
+          <Button onPress={this.onBack.bind(this)} transparent>
+            <Icon style={styles.iconcolor} name='ios-arrow-back' />
+          </Button>
+          
+          <Title style={styles.titletext}>Routineapp</Title>
+          
+          <Button transparent>
+            <Icon style={styles.iconcolor} name='ios-menu' />
+          </Button>
+
+        </Header>
         <Content>
           <List dataArray = {stronglift.routine['list']} renderRow={(exercise) => 
             <ListItem button onPress={this.onForward.bind(this)}>
@@ -44,8 +55,11 @@ export default class Daylist extends Component {
   onForward() {
     this.props.navigator.push({
       id: 'exerciselist',
-      index: 1,
+      index: 2,
     })
+  }
+  onBack() {
+    this.props.navigator.pop()
   }
 }
 

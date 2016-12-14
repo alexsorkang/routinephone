@@ -15,39 +15,48 @@ import {
 
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem, Tabs } from 'native-base';
 
-import CurrentRoutine from './androidjs/CurrentRoutine.android.js'
-import Progress from './androidjs/Progress.android.js'
-import PublicRoutines from './androidjs/PublicRoutines'
-import Exerciselist from './androidjs/Exerciselist'
-import Headerpage from './androidjs/Headerpage'
+import CurrentRoutine from './androidjs/CurrentRoutine.android'
+import Progress from './androidjs/Progress.android'
+import PublicRoutines from './androidjs/PublicRoutines.android'
+import Exerciselist from './androidjs/Exerciselist.android'
+import Headerpage from './androidjs/Headerpage.android'
+import Daylist from './androidjs/Daylist.android'
 
 export default class routinephone extends Component {
   render() {
     return (
-        <Container>
-          <Header style={styles.header}>
-            <Button transparent>
-              <Icon style={styles.iconcolor} name='ios-arrow-back' />
-            </Button>
-            
-            <Title style={styles.titletext}>Routineapp</Title>
-            
-            <Button transparent>
-              <Icon style={styles.iconcolor} name='ios-menu' />
-            </Button>
-          </Header>
-          <Content>
-            <Tabs>
-              <CurrentRoutine tabLabel='Current' />
-              <Progress tabLabel='Progress' />
-              <PublicRoutines tabLabel='Public' />
-            </Tabs>
-          </Content>
-        </Container>
+        <Navigator
+            initialRoute={{ id: 'headerpage', index: 0 }}
+            renderScene = {this.renderScene.bind(this)}
+            tabLabel='Current'
+            onBack={() => {
+            if (route.index > 0) {
+                navigator.pop();
+              }
+            }}
+          />
     )
   }
   onBack() {
     navigator.pop()
+  }
+  renderScene(route, navigator) {
+    var routeid = route.id;
+    if (routeid === 'headerpage') {
+      return (
+        <Headerpage navigator={navigator}/>
+        )
+    }
+    if (routeid === 'daylist') {
+      return (
+        <Daylist navigator={navigator}/>
+        );
+    }
+    if (routeid === 'exerciselist') {
+      return (
+        <Exerciselist navigator={navigator}/>
+        );
+    }
   }
 }
         // <Outer data="one"/>

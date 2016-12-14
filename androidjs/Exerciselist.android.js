@@ -22,7 +22,7 @@ export default class Exerciselist extends Component {
     return (
         <Container>
           <Header style={styles.header}>
-            <Button onPress={this.props.onBack} transparent>
+            <Button onPress={this.onBack.bind(this)} transparent>
               <Icon style={styles.iconcolor} name='ios-arrow-back' />
             </Button>
             
@@ -40,6 +40,9 @@ export default class Exerciselist extends Component {
 
         </Container>
     )
+  }
+  onBack() {
+    this.props.navigator.pop()
   }
 }
 
