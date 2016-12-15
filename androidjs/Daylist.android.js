@@ -44,24 +44,28 @@ export default class Daylist extends Component {
         <Content style={styles.contentcolor}>
           <List dataArray = {stronglift.routine['list']} renderRow={(exercise) => 
             <ListItem button onPress={this.onForward.bind(this)}>
-              <Text style={styles.optiontext}> dayone dayonedayonedayonedayonedayonedayonedayonedayonedayonedayonedayonedayone{exercise[0][0]} </Text>
+              <Text style={styles.optiontext}> dayone {exercise[0][0]} </Text>
             </ListItem>
             }>
           </List>
         </Content>
         <Footer>
           <FooterTab style={styles.header}>
-            <Button>
+            <Button active>
                 Current
-                <Icon name='ios-apps-outline' style={styles.iconcolor} />
+                <Icon name='md-flash'/>
             </Button>
-            <Button>
+            <Button onPress={this.onProgress.bind(this)}>
                 Progress
-                <Icon name='ios-camera-outline' style={styles.iconcolor} />
+                <Icon name='ios-trending-up'/>
             </Button>
             <Button>
                 Public
-                <Icon name='ios-compass' style={styles.iconcolor} />
+                <Icon name='ios-book'/>
+            </Button>
+            <Button>
+                Create
+                <Icon name='ios-add'/>
             </Button>
           </FooterTab>
         </Footer>
@@ -71,6 +75,12 @@ export default class Daylist extends Component {
   onForward() {
     this.props.navigator.push({
       id: 'exerciselist',
+      index: 1,
+    })
+  }
+  onProgress() {
+    this.props.navigator.push({
+      id: 'progress',
       index: 1,
     })
   }

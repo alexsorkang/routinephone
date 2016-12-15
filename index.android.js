@@ -57,6 +57,11 @@ export default class routinephone extends Component {
         <Exerciselist navigator={navigator}/>
         );
     }
+    if (routeid === 'progress') {
+      return (
+        <Progress navigator={navigator}/>
+        );
+    }
   }
 }
         // <Outer data="one"/>
