@@ -13,9 +13,9 @@ import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, Lis
 
 // import CurrentRoutine from './CurrentRoutine.android.js'
 import Progress from './Progress.android.js'
-import PublicRoutines from './PublicRoutines'
-import Exerciselist from './Exerciselist'
-
+import PublicRoutines from './PublicRoutines.android.js'
+import Exerciselist from './Exerciselist.android.js'
+import Theme from '../Themes/customtheme.js'
 
 export default class Daylist extends Component {
   render() {
@@ -28,7 +28,7 @@ export default class Daylist extends Component {
   renderScene(route, navigator) {
     var stronglift = {name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['rest',0,0]],[['rest',0,0]],[['ohp',5,5],['deadlift',1,5]]]},difficulty:'novice'}
     return (
-      <Container>
+      <Container theme={Theme}>
         <Header style={styles.header}>
           <Button onPress={this.onBack.bind(this)} transparent>
             <Icon style={styles.iconcolor} name='ios-arrow-back' />
@@ -52,15 +52,15 @@ export default class Daylist extends Component {
         <Footer>
           <FooterTab style={styles.header}>
             <Button>
-                <Text style="">Current</Text>
+                Current
                 <Icon name='ios-apps-outline' style={styles.iconcolor} />
             </Button>
             <Button>
-                Camera
+                Progress
                 <Icon name='ios-camera-outline' style={styles.iconcolor} />
             </Button>
             <Button>
-                Navigate
+                Public
                 <Icon name='ios-compass' style={styles.iconcolor} />
             </Button>
           </FooterTab>
