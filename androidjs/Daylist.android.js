@@ -41,21 +41,37 @@ export default class Daylist extends Component {
           </Button>
 
         </Header>
-        <Content>
+        <Content style={styles.contentcolor}>
           <List dataArray = {stronglift.routine['list']} renderRow={(exercise) => 
             <ListItem button onPress={this.onForward.bind(this)}>
-              <Text style={styles.optiontext}> dayone {exercise[0][0]} </Text>
+              <Text style={styles.optiontext}> dayone dayonedayonedayonedayonedayonedayonedayonedayonedayonedayonedayonedayone{exercise[0][0]} </Text>
             </ListItem>
             }>
           </List>
         </Content>
+        <Footer>
+          <FooterTab style={styles.header}>
+            <Button>
+                <Text style="">Current</Text>
+                <Icon name='ios-apps-outline' style={styles.iconcolor} />
+            </Button>
+            <Button>
+                Camera
+                <Icon name='ios-camera-outline' style={styles.iconcolor} />
+            </Button>
+            <Button>
+                Navigate
+                <Icon name='ios-compass' style={styles.iconcolor} />
+            </Button>
+          </FooterTab>
+        </Footer>
       </Container>
       )
   }
   onForward() {
     this.props.navigator.push({
       id: 'exerciselist',
-      index: 2,
+      index: 1,
     })
   }
   onBack() {
@@ -65,18 +81,22 @@ export default class Daylist extends Component {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#F8F8F8'
+    backgroundColor: '#4A4A4A'
+    // backgroundColor: '#DBDDDE'
+  },
+  contentcolor: {
+    backgroundColor: '#2B2B2B'
   },
   iconcolor: {
-    color: 'black'
+    color: 'white'
   },
   titletext: {
-    color: 'black'
+    color: 'white'
   },
   optiontext: {
     // padding: 10,
     // fontSize: 20,
-    color: 'black',
+    color: 'white',
   },
   centertext: {
     fontSize: 20,

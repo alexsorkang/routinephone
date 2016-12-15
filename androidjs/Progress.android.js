@@ -26,7 +26,7 @@ export default class Progress extends Component {
               <Icon style={styles.iconcolor} name='ios-arrow-back' />
             </Button>
             
-            <Title style={styles.titletext}>Routineapp</Title>
+            <Title style={styles.titletext}>Progress</Title>
             
             <Button transparent>
               <Icon style={styles.iconcolor} name='ios-menu' />
@@ -56,7 +56,22 @@ export default class Progress extends Component {
               </ListItem>
             </List>
           </Content>
-
+          <Footer>
+            <FooterTab style={styles.footerstyle}>
+              <Button>
+                  <Text style="">Current</Text>
+                  <Icon name='ios-apps-outline' style={styles.iconcolor} />
+              </Button>
+              <Button>
+                  Camera
+                  <Icon name='ios-camera-outline' style={styles.iconcolor}/>
+              </Button>
+              <Button>
+                  Navigate
+                  <Icon name='ios-compass' style={styles.iconcolor}/>
+              </Button>
+            </FooterTab>
+          </Footer>
         </Container>
     )
   }
@@ -64,6 +79,10 @@ export default class Progress extends Component {
 
 const styles = StyleSheet.create({
   header: {
+    backgroundColor: '#F8F8F8'
+    // backgroundColor: '#DBDDDE'
+  },
+  footerstyle: {
     backgroundColor: '#F8F8F8'
   },
   iconcolor: {
@@ -73,8 +92,8 @@ const styles = StyleSheet.create({
     color: 'black'
   },
   optiontext: {
-    padding: 10,
-    fontSize: 20,
+    // padding: 10,
+    // fontSize: 20,
     color: 'black',
   },
   centertext: {
@@ -83,18 +102,6 @@ const styles = StyleSheet.create({
     margin: 10,
     justifyContent: 'center',
     color: 'black',
-  },
-  headerblack: {
-    // width: 50,
-    flex: 1,
-    height: 50,
-    backgroundColor: 'black',
-  },
-  headerpink: {
-    // width: 50,
-    flex: 1,
-    height: 50,
-    backgroundColor: 'pink',
   },
   instructions: {
     textAlign: 'center',

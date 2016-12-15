@@ -26,7 +26,7 @@ export default class routinephone extends Component {
   render() {
     return (
         <Navigator
-            initialRoute={{ id: 'headerpage', index: 0 }}
+            initialRoute={{ id: 'daylist', index: 0 }}
             renderScene = {this.renderScene.bind(this)}
             tabLabel='Current'
             onBack={() => {

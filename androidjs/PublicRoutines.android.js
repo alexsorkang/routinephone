@@ -27,7 +27,7 @@ export default class PublicRoutines extends Component {
               <Icon style={styles.iconcolor} name='ios-arrow-back' />
             </Button>
             
-            <Title style={styles.titletext}>Routineapp</Title>
+            <Title style={styles.titletext}>Public</Title>
             
             <Button transparent>
               <Icon style={styles.iconcolor} name='ios-menu' />
@@ -35,16 +35,24 @@ export default class PublicRoutines extends Component {
 
           </Header>
           <Content>
-            <List>
-              <ListItem button onPress={this.props.onForward}>
-                <Text style={styles.optiontext}>option 1</Text>
-              </ListItem>
-              <ListItem button onPress={this.props.onBack}>
-                <Text style={styles.optiontext}>option 2</Text>
-              </ListItem>
-            </List>
+            <Text>PublicRoutines page</Text>
           </Content>
-
+          <Footer>
+            <FooterTab style={styles.footerstyle}>
+              <Button>
+                  <Text style="">Current</Text>
+                  <Icon name='ios-apps-outline' style={styles.iconcolor} />
+              </Button>
+              <Button>
+                  Camera
+                  <Icon name='ios-camera-outline' style={styles.iconcolor}/>
+              </Button>
+              <Button>
+                  Navigate
+                  <Icon name='ios-compass' style={styles.iconcolor}/>
+              </Button>
+            </FooterTab>
+          </Footer>
         </Container>
     )
   }
@@ -52,6 +60,10 @@ export default class PublicRoutines extends Component {
 
 const styles = StyleSheet.create({
   header: {
+    backgroundColor: '#F8F8F8'
+    // backgroundColor: '#DBDDDE'
+  },
+  footerstyle: {
     backgroundColor: '#F8F8F8'
   },
   iconcolor: {
@@ -71,18 +83,6 @@ const styles = StyleSheet.create({
     margin: 10,
     justifyContent: 'center',
     color: 'black',
-  },
-  headerblack: {
-    // width: 50,
-    flex: 1,
-    height: 50,
-    backgroundColor: 'black',
-  },
-  headerpink: {
-    // width: 50,
-    flex: 1,
-    height: 50,
-    backgroundColor: 'pink',
   },
   instructions: {
     textAlign: 'center',

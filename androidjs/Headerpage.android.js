@@ -42,10 +42,10 @@ export default class Headerpage extends Component {
         </Header>
         <Content>
         </Content>
-        <Footer >
+        <Footer tabBarTextColor='black'>
           <FooterTab style={styles.footerstyle} tabBarTextColor='black'>
               <Button onPress={this.onForward.bind(this)}>
-                  <Text style={styles.optiontext}> Current </Text>
+                  Current
                   <Icon style={styles.iconcolor} name='ios-apps-outline' />
               </Button>
               <Button>
