@@ -26,7 +26,7 @@ export default class Exerciselist extends Component {
               <Icon style={styles.iconcolor} name='ios-arrow-back' />
             </Button>
             
-            <Title style={styles.titletext}>Routineapp</Title>
+            <Title style={styles.titletext}>Exerciselist</Title>
             
             <Button transparent>
               <Icon style={styles.iconcolor} name='ios-menu' />

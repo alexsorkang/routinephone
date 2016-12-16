@@ -13,13 +13,13 @@ import {
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem, Tabs } from 'native-base';
 
 import CurrentRoutine from './CurrentRoutine.android.js'
-// import Progress from './Progress.android.js'
+import Progress from './Progress.android.js'
+// 
 import PublicRoutines from './PublicRoutines'
 import Exerciselist from './Exerciselist'
-import Newroutine from './Newroutine.android.js'
 import Theme from '../Themes/customtheme.js'
 
-export default class Progress extends Component {
+export default class Newroutine extends Component {
   render() {
     return (
       <Navigator

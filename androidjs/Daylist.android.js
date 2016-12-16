@@ -9,12 +9,14 @@ import {
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 // import IconSetList from './IconSetList';
 // import IconList from './IconList';
+
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem, Tabs} from 'native-base';
 
 // import CurrentRoutine from './CurrentRoutine.android.js'
 import Progress from './Progress.android.js'
 import PublicRoutines from './PublicRoutines.android.js'
 import Exerciselist from './Exerciselist.android.js'
+import Newroutine from './Newroutine.android.js'
 import Theme from '../Themes/customtheme.js'
 
 export default class Daylist extends Component {
@@ -30,9 +32,7 @@ export default class Daylist extends Component {
     return (
       <Container theme={Theme}>
         <Header style={styles.header}>
-          <Button onPress={this.onBack.bind(this)} transparent>
-            <Icon style={styles.iconcolor} name='ios-arrow-back' />
-          </Button>
+
           
           <Title style={styles.titletext}>Routineapp</Title>
           
