@@ -42,11 +42,6 @@ export default class routinephone extends Component {
   }
   renderScene(route, navigator) {
     var routeid = route.id;
-    if (routeid === 'headerpage') {
-      return (
-        <Headerpage navigator={navigator}/>
-        )
-    }
     if (routeid === 'daylist') {
       return (
         <Daylist navigator={navigator}/>
@@ -60,6 +55,11 @@ export default class routinephone extends Component {
     if (routeid === 'progress') {
       return (
         <Progress navigator={navigator}/>
+        );
+    }
+    if (routeid === 'newroutine') {
+      return (
+        <newroutine navigator={navigator}/>
         );
     }
   }
