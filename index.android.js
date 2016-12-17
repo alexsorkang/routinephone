@@ -19,8 +19,8 @@ import CurrentRoutine from './androidjs/CurrentRoutine.android'
 import Progress from './androidjs/Progress.android'
 import PublicRoutines from './androidjs/PublicRoutines.android'
 import Exerciselist from './androidjs/Exerciselist.android'
-import Headerpage from './androidjs/Headerpage.android'
 import Daylist from './androidjs/Daylist.android'
+import Newroutine from './androidjs/Newroutine.android.js'
 
 export default class routinephone extends Component {
   render() {
@@ -59,7 +59,12 @@ export default class routinephone extends Component {
     }
     if (routeid === 'newroutine') {
       return (
-        <newroutine navigator={navigator}/>
+        <Newroutine navigator={navigator}/>
+        );
+    }
+    if (routeid === 'public') {
+      return (
+        <PublicRoutines navigator={navigator}/>
         );
     }
   }

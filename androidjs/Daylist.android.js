@@ -59,11 +59,11 @@ export default class Daylist extends Component {
                 Progress
                 <Icon name='ios-trending-up'/>
             </Button>
-            <Button>
+            <Button onPress={this.onPublic.bind(this)}>
                 Public
-                <Icon name='ios-book'/>
+                <Icon name='ios-browsers'/>
             </Button>
-            <Button>
+            <Button onPress={this.onNew.bind(this)}>
                 Create
                 <Icon name='ios-add'/>
             </Button>
@@ -81,6 +81,18 @@ export default class Daylist extends Component {
   onProgress() {
     this.props.navigator.push({
       id: 'progress',
+      index: 1,
+    })
+  }
+  onPublic() {
+    this.props.navigator.push({
+      id: 'public',
+      index: 1,
+    })
+  }
+  onNew() {
+    this.props.navigator.push({
+      id: 'newroutine',
       index: 1,
     })
   }
