@@ -31,7 +31,7 @@ export default class Progress extends Component {
     return(
       <Container theme={Theme}>
         <Header style={styles.header}>
-          <Button onPress={this.props.onBack.bind(this)} transparent>
+          <Button onPress={this.onBack.bind(this)} transparent>
             <Icon style={styles.iconcolor} name='ios-arrow-back' />
           </Button>
           
@@ -57,7 +57,7 @@ export default class Progress extends Component {
             </Button>
             <Button onPress={this.onPublic.bind(this)}>
                 Public
-                <Icon name='ios-browsers'/>
+                <Icon name='ios-copy-outline'/>
             </Button>
             <Button onPress={this.onNew.bind(this)}>
                 Create
@@ -69,7 +69,10 @@ export default class Progress extends Component {
     )
   }
   onCurrent(){
-    this.props.navigator.pop()
+    this.props.navigator.push({
+      id: 'daylist',
+      index: 1,
+    })
   }
   // onProgress() {
   //   this.props.navigator.pop()

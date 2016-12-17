@@ -61,7 +61,7 @@ export default class Daylist extends Component {
             </Button>
             <Button onPress={this.onPublic.bind(this)}>
                 Public
-                <Icon name='ios-browsers'/>
+                <Icon name='ios-copy-outline'/>
             </Button>
             <Button onPress={this.onNew.bind(this)}>
                 Create
