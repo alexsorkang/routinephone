@@ -3,42 +3,58 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator
 } from 'react-native';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 // import IconSetList from './IconSetList';
 // import IconList from './IconList';
 
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem, Tabs } from 'native-base';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem, Card, CardItem } from 'native-base';
 
-import CurrentRoutine from './CurrentRoutine.android.js'
-import Progress from './Progress.android.js'
-import PublicRoutines from './PublicRoutines'
-// import Exerciselist from './androidjs/Exerciselist'
+import Theme from '../Themes/customtheme.js'
 
 
 export default class Exerciselist extends Component {
+
   render() {
+  return (
+    <Navigator
+      renderScene={this.renderScene.bind(this)}
+      />
+    )
+  }
+  renderScene(route, navigator) {
     return (
-        <Container>
-          <Header style={styles.header}>
-            <Button onPress={this.onBack.bind(this)} transparent>
-              <Icon style={styles.iconcolor} name='ios-arrow-back' />
-            </Button>
-            
-            <Title style={styles.titletext}>Exerciselist</Title>
-            
-            <Button transparent>
-              <Icon style={styles.iconcolor} name='ios-menu' />
-            </Button>
+      <Container theme={Theme}>
+        <Header style={styles.header}>
+          <Button onPress={this.onBack.bind(this)} transparent>
+            <Icon style={styles.iconcolor} name='ios-arrow-back' />
+          </Button>
+          
+          <Title style={styles.titletext}>Exerciselist</Title>
+          
+          <Button transparent>
+            <Icon style={styles.iconcolor} name='ios-menu' />
+          </Button>
 
-          </Header>
+        </Header>
 
-          <Content>
-            <Text>Exercise Page</Text>
-          </Content>
+        <Content style={styles.contentcolor}>
+          <Card>
+            <CardItem header>
+              <Text style={styles.optiontext}>Exercise Page</Text>
+            </CardItem>
+            <CardItem>
+              <Text style={styles.optiontext}>Exercise Page</Text>
+            </CardItem>
+            <CardItem>
+              <Text style={styles.optiontext}>Exercise Page</Text>
+            </CardItem>
+          </Card>
+        </Content>
 
-        </Container>
+      </Container>
     )
   }
   onBack() {
@@ -48,17 +64,25 @@ export default class Exerciselist extends Component {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#F8F8F8'
+    // backgroundColor: '#4A4A4A'
+    backgroundColor: 'white'
+  },
+  contentcolor: {
+    // backgroundColor: '#2B2B2B'
+    backgroundColor: 'white'
   },
   iconcolor: {
+    // color: 'white'
     color: 'black'
   },
   titletext: {
+    // color: 'white'
     color: 'black'
   },
   optiontext: {
-    padding: 10,
-    fontSize: 20,
+    // padding: 10,
+    // fontSize: 20,
+    // color: 'white',
     color: 'black',
   },
   centertext: {
@@ -67,18 +91,6 @@ const styles = StyleSheet.create({
     margin: 10,
     justifyContent: 'center',
     color: 'black',
-  },
-  headerblack: {
-    // width: 50,
-    flex: 1,
-    height: 50,
-    backgroundColor: 'black',
-  },
-  headerpink: {
-    // width: 50,
-    flex: 1,
-    height: 50,
-    backgroundColor: 'pink',
   },
   instructions: {
     textAlign: 'center',

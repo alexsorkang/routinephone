@@ -50,7 +50,7 @@ export default class Daylist extends Component {
           </List>
         </Content>
         <Footer>
-          <FooterTab style={styles.header}>
+          <FooterTab style={styles.footer}>
             <Button active>
                 Current
                 <Icon name='md-flash'/>
@@ -103,22 +103,32 @@ export default class Daylist extends Component {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#4A4A4A'
-    // backgroundColor: '#DBDDDE'
+    // backgroundColor: '#4A4A4A'
+    backgroundColor: '#F7F7F7'
+  },
+  footer: {
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: 'white',
+    borderTopColor: '#D7D7D7'
   },
   contentcolor: {
-    backgroundColor: '#2B2B2B'
+    // backgroundColor: '#2B2B2B'
+    backgroundColor: 'white'
   },
   iconcolor: {
-    color: 'white'
+    // color: 'white'
+    color: 'black'
   },
   titletext: {
-    color: 'white'
+    // color: 'white'
+    color: 'black'
   },
   optiontext: {
     // padding: 10,
     // fontSize: 20,
-    color: 'white',
+    // color: 'white',
+    color: 'black',
   },
   centertext: {
     fontSize: 20,

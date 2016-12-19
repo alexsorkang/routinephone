@@ -109,12 +109,14 @@ export default {
 
     //FooterTab
     // tabBarTextColor: (Platform.OS === 'ios' ) ? '#6b6b6b' : '#b3c7f9',
-    tabBarTextColor: '#D7D7D7',
+    // tabBarTextColor: '#D7D7D7',
+    tabBarTextColor: '#C7C7CC',
     // tabBarActiveTextColor: (Platform.OS === 'ios' ) ? '#007aff' : '#fff',
-    // tabBarActiveTextColor: '#007AFF',
-    tabBarActiveTextColor: 'white',
+    // tabBarActiveTextColor: 'white',
+    tabBarActiveTextColor: '#FF9500',
     // tabActiveBgColor: (Platform.OS=='ios') ? '#cde1f9' : undefined,
-    tabActiveBgColor: '#4A4A4A',
+    // tabActiveBgColor: '#4A4A4A',
+    tabActiveBgColor: 'white',
 
     //Tab
     tabDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#4179F7',
@@ -176,7 +178,7 @@ export default {
 
     // List
     // listBorderColor: '#ddd',
-    listBorderColor: '#2B2B2B',
+    listBorderColor: 'white',
     listDividerBg: '#ddd',
     listItemHeight: 45,
     listItemPadding: (Platform.OS === 'ios' ) ? 12 : 16,
