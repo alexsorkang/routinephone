@@ -12,7 +12,7 @@ import {
 
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem, Tabs } from 'native-base';
 
-import CurrentRoutine from './CurrentRoutine.android.js'
+
 // import Progress from './Progress.android.js'
 import PublicRoutines from './PublicRoutines'
 import Exerciselist from './Exerciselist'
@@ -46,7 +46,7 @@ export default class Progress extends Component {
           <Text style={styles.optiontext}>Progress page</Text>
         </Content>
         <Footer>
-          <FooterTab style={styles.header}>
+          <FooterTab style={styles.footer}>
             <Button onPress={this.onCurrent.bind(this)}>
                 Current
                 <Icon name='ios-flash'/>
@@ -100,22 +100,32 @@ export default class Progress extends Component {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#4A4A4A'
-    // backgroundColor: '#DBDDDE'
+    // backgroundColor: '#4A4A4A'
+    backgroundColor: '#F7F7F7'
+  },
+  footer: {
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: 'white',
+    borderTopColor: '#D7D7D7'
   },
   contentcolor: {
-    backgroundColor: '#2B2B2B'
+    // backgroundColor: '#2B2B2B'
+    backgroundColor: 'white'
   },
   iconcolor: {
-    color: 'white'
+    // color: 'white'
+    color: 'black'
   },
   titletext: {
-    color: 'white'
+    // color: 'white'
+    color: 'black'
   },
   optiontext: {
     // padding: 10,
     // fontSize: 20,
-    color: 'white',
+    // color: 'white',
+    color: 'black',
   },
   centertext: {
     fontSize: 20,

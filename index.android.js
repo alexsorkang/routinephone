@@ -15,7 +15,6 @@ import {
 
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem, Tabs } from 'native-base';
 
-import CurrentRoutine from './androidjs/CurrentRoutine.android'
 import Progress from './androidjs/Progress.android'
 import PublicRoutines from './androidjs/PublicRoutines.android'
 import Exerciselist from './androidjs/Exerciselist.android'

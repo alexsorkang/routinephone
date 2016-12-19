@@ -12,7 +12,6 @@ import {
 
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem, Tabs} from 'native-base';
 
-// import CurrentRoutine from './CurrentRoutine.android.js'
 import Progress from './Progress.android.js'
 import PublicRoutines from './PublicRoutines.android.js'
 import Exerciselist from './Exerciselist.android.js'
@@ -53,7 +52,7 @@ export default class Daylist extends Component {
           <FooterTab style={styles.footer}>
             <Button active>
                 Current
-                <Icon name='md-flash'/>
+                <Icon name='ios-flash'/>
             </Button>
             <Button onPress={this.onProgress.bind(this)}>
                 Progress
