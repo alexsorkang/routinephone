@@ -41,17 +41,24 @@ export default class Exerciselist extends Component {
         </Header>
 
         <Content style={styles.contentcolor}>
-          <Card>
-            <CardItem header>
-              <Text style={styles.optiontext}>Exercise Page</Text>
-            </CardItem>
-            <CardItem>
-              <Text style={styles.optiontext}>Exercise Page</Text>
-            </CardItem>
-            <CardItem>
-              <Text style={styles.optiontext}>Exercise Page</Text>
-            </CardItem>
-          </Card>
+          <View>
+            <View style={{flex:1, flexDirection:'column', padding: 5}}>
+              <View style={{height: 100, padding: 5, backgroundColor: 'white', borderWidth: 1, borderColor: "#ddd"}}>
+                <Text style={{color: 'black'}}>this is padded text</Text>
+              </View>
+            </View>
+            <View style={{flex:1, flexDirection:'column', paddingLeft: 5, paddingRight: 5}}>
+              <View style={{height: 100, padding: 5, backgroundColor: 'white', borderWidth: 1, borderColor: "#ddd"}}>
+                <Text style={{color: 'black'}}>this is padded text</Text>
+              </View>
+            </View>
+            <View style={{flex:1, flexDirection:'column', padding: 5}}>
+              <View style={{height: 100, padding: 5, backgroundColor: 'white' , borderWidth: 1, borderColor: "#ddd"}}>
+                <Text style={{color: 'black'}}>this is padded text</Text>
+              </View>
+            </View>
+          </View>
+
         </Content>
 
       </Container>
@@ -68,8 +75,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   contentcolor: {
-    // backgroundColor: '#2B2B2B'
-    backgroundColor: 'white'
+    backgroundColor: '#F7F7F7',
+    // backgroundColor: 'white'
+    // padding: 5,
+    // paddingTop: 2,
+    // paddingBottom: 0
   },
   iconcolor: {
     // color: 'white'
@@ -96,5 +106,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  card: {
+    padding: 10
   },
 });

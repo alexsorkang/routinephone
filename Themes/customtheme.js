@@ -177,8 +177,8 @@ export default {
 
 
     // List
-    // listBorderColor: '#ddd',
-    listBorderColor: 'white',
+    listBorderColor: '#ddd',
+    // listBorderColor: 'white',
     listDividerBg: '#ddd',
     listItemHeight: 45,
     listItemPadding: (Platform.OS === 'ios' ) ? 12 : 16,
