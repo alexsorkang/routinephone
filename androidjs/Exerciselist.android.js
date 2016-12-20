@@ -25,6 +25,7 @@ export default class Exerciselist extends Component {
     )
   }
   renderScene(route, navigator) {
+    var routine = [['bench', 5,5],['rows', 3,8]];
     return (
       <Container theme={Theme}>
         <Header style={styles.header}>
@@ -42,21 +43,18 @@ export default class Exerciselist extends Component {
 
         <Content style={styles.contentcolor}>
           <View>
-            <View style={{flex:1, flexDirection:'column', padding: 5}}>
-              <View style={{height: 100, padding: 5, backgroundColor: 'white', borderWidth: 1, borderColor: "#ddd"}}>
-                <Text style={{color: 'black'}}>this is padded text</Text>
-              </View>
-            </View>
-            <View style={{flex:1, flexDirection:'column', paddingLeft: 5, paddingRight: 5}}>
-              <View style={{height: 100, padding: 5, backgroundColor: 'white', borderWidth: 1, borderColor: "#ddd"}}>
-                <Text style={{color: 'black'}}>this is padded text</Text>
-              </View>
-            </View>
-            <View style={{flex:1, flexDirection:'column', padding: 5}}>
-              <View style={{height: 100, padding: 5, backgroundColor: 'white' , borderWidth: 1, borderColor: "#ddd"}}>
-                <Text style={{color: 'black'}}>this is padded text</Text>
-              </View>
-            </View>
+            {routine.map(function(object, i){
+              return(
+                <View key={i} style={{flex:1, flexDirection:'column', padding: 5, paddingBottom: 0}}>
+                  <View style={{height: 100, padding: 5, backgroundColor: 'white', borderWidth: 1, borderColor: "#ddd"}}>
+                    <Text style={{color: 'black'}}>{object[0]}</Text>
+                    <Text style={{color: 'black'}}>{object[1]}</Text>
+                    <Text style={{color: 'black'}}>{object[2]}</Text>
+                  </View>
+                </View>
+              )}
+            )}
+
           </View>
 
         </Content>
