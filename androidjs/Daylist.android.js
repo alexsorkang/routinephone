@@ -27,7 +27,7 @@ export default class Daylist extends Component {
     )
   }
   renderScene(route, navigator) {
-    var stronglift = {name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['rest',0,0]],[['rest',0,0]],[['ohp',5,5],['deadlift',1,5]]]},difficulty:'novice'}
+    var stronglift = this.props.data;
     return (
       <Container theme={Theme}>
         <Header style={styles.header}>
@@ -42,7 +42,7 @@ export default class Daylist extends Component {
         </Header>
         <Content style={styles.contentcolor}>
           <List dataArray = {stronglift.routine['list']} renderRow={(exercise) => 
-            <ListItem button onPress={this.onForward.bind(this)}>
+            <ListItem button onPress={this.onForward.bind(this, exercise)}>
               <Text style={styles.optiontext}> dayone {exercise[0][0]} </Text>
             </ListItem>
             }>
@@ -71,10 +71,11 @@ export default class Daylist extends Component {
       </Container>
       )
   }
-  onForward() {
+  onForward(exercise) {
     this.props.navigator.push({
       id: 'exerciselist',
       index: 1,
+      data: exercise,
     })
   }
   onProgress() {

@@ -25,7 +25,7 @@ export default class Exerciselist extends Component {
     )
   }
   renderScene(route, navigator) {
-    var routine = [['bench', 5,5],['rows', 3,8]];
+    var routine = this.props.data;
     return (
       <Container theme={Theme}>
         <Header style={styles.header}>
