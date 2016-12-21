@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FlipCard from 'react-native-flip-card';
 import {
   AppRegistry,
   StyleSheet,
@@ -45,13 +46,34 @@ export default class Exerciselist extends Component {
           <View>
             {routine.map(function(object, i){
               return(
-                <View key={i} style={{flex:1, flexDirection:'column', padding: 5, paddingBottom: 0}}>
-                  <View style={{height: 100, padding: 5, backgroundColor: 'white', borderWidth: 1, borderColor: "#ddd"}}>
-                    <Text style={{color: 'black'}}>{object[0]}</Text>
-                    <Text style={{color: 'black'}}>{object[1]}</Text>
-                    <Text style={{color: 'black'}}>{object[2]}</Text>
+                <FlipCard style={{borderWidth:0}}>
+                <View style={styles.face}>
+                  <View key={i + 'front'} style={{flex:1, flexDirection:'column', padding: 5, paddingBottom: 0}}>
+                    <View style={{height: 100, padding: 5, backgroundColor: 'white', borderWidth: 1, borderColor: "#ddd"}}>
+                      <View style={{flexDirection:'row'}}>
+                        <Text style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
+                        <Text style={[styles.optiontext, {flex:1, textAlign: 'right'}]}>front</Text>
+                      </View>
+                      <View>
+                        <Text style={styles.optiontext}>new row</Text>
+                      </View>
+                    </View>
                   </View>
                 </View>
+                <View style={[styles.back, {borderWidth:0}]}>
+                  <View key={i + 'back'} style={{flex:1, flexDirection:'column', padding: 5, paddingBottom: 0}}> 
+                    <View style={{height: 100, padding: 5, backgroundColor: 'white', borderWidth: 1, borderColor: "#ddd"}}>
+                      <View style={{flexDirection:'row'}}>
+                        <Text style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
+                        <Text style={[styles.optiontext, {flex:1, textAlign: 'right'}]}>back</Text>
+                      </View>
+                      <View>
+                        <Text style={styles.optiontext}>new row</Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+                </FlipCard>
               )}
             )}
 
