@@ -17,12 +17,21 @@ import Theme from '../Themes/customtheme.js'
 
 
 export default class Exerciselist extends Component {
-
+  constructor(props) {
+    super(props);
+    var routine = this.props.data;
+    var arr = []
+    routine.map(function(object,i) {
+      arr.push(false);
+    })
+    this.state = {
+      flip: arr
+    }
+    
+  }
   render() {
-  return (
-    <Navigator
-      renderScene={this.renderScene.bind(this)}
-      />
+    return (
+      <Navigator renderScene={this.renderScene.bind(this)} />
     )
   }
   renderScene(route, navigator) {
@@ -42,17 +51,18 @@ export default class Exerciselist extends Component {
 
         </Header>
 
-        <Content style={styles.contentcolor}>
+        <Content style={styles.contentcolor}>          
           <View>
             {routine.map(function(object, i){
               return(
-                <FlipCard style={{borderWidth:0}}>
+                <FlipCard flip={this.state.flip[i]} style={{borderWidth:0}} clickable={false}>
                 <View style={styles.face}>
                   <View key={i + 'front'} style={{flex:1, flexDirection:'column', padding: 5, paddingBottom: 0}}>
                     <View style={{height: 100, padding: 5, backgroundColor: 'white', borderWidth: 1, borderColor: "#ddd"}}>
                       <View style={{flexDirection:'row'}}>
                         <Text style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
-                        <Text style={[styles.optiontext, {flex:1, textAlign: 'right'}]}>front</Text>
+                        <Text>previous stats</Text>
+                        <Icon onPress={() => {var flipnew = this.state.flip; flipnew[i] = !flipnew[i]; this.setState({flip: flipnew})}} style={[styles.iconcolor, {flex:1}]} name='ios-swap'></Icon>
                       </View>
                       <View>
                         <Text style={styles.optiontext}>new row</Text>
@@ -65,7 +75,7 @@ export default class Exerciselist extends Component {
                     <View style={{height: 100, padding: 5, backgroundColor: 'white', borderWidth: 1, borderColor: "#ddd"}}>
                       <View style={{flexDirection:'row'}}>
                         <Text style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
-                        <Text style={[styles.optiontext, {flex:1, textAlign: 'right'}]}>back</Text>
+                        <Icon onPress={() => {var flipnew = this.state.flip; flipnew[i] = !flipnew[i]; this.setState({flip: flipnew})}} style={[styles.iconcolor, {flex:1}]} name='ios-swap'></Icon>
                       </View>
                       <View>
                         <Text style={styles.optiontext}>new row</Text>
@@ -74,7 +84,7 @@ export default class Exerciselist extends Component {
                   </View>
                 </View>
                 </FlipCard>
-              )}
+              )}.bind(this)
             )}
 
           </View>
