@@ -61,8 +61,7 @@ export default class Exerciselist extends Component {
                     <View style={{height: 100, padding: 5, backgroundColor: 'white', borderWidth: 1, borderColor: "#ddd"}}>
                       <View style={{flexDirection:'row'}}>
                         <Text style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
-                        <Text>previous stats</Text>
-                        <Icon onPress={() => {var flipnew = this.state.flip; flipnew[i] = !flipnew[i]; this.setState({flip: flipnew})}} style={[styles.iconcolor, {flex:1}]} name='ios-swap'></Icon>
+                        <Text onPress={this.cardFlip.bind(this, i)} style={[]}>view previous</Text>
                       </View>
                       <View>
                         <Text style={styles.optiontext}>new row</Text>
@@ -75,7 +74,7 @@ export default class Exerciselist extends Component {
                     <View style={{height: 100, padding: 5, backgroundColor: 'white', borderWidth: 1, borderColor: "#ddd"}}>
                       <View style={{flexDirection:'row'}}>
                         <Text style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
-                        <Icon onPress={() => {var flipnew = this.state.flip; flipnew[i] = !flipnew[i]; this.setState({flip: flipnew})}} style={[styles.iconcolor, {flex:1}]} name='ios-swap'></Icon>
+                        <Text onPress={this.cardFlip.bind(this, i)} style={[]}>view current</Text>
                       </View>
                       <View>
                         <Text style={styles.optiontext}>new row</Text>
@@ -93,6 +92,11 @@ export default class Exerciselist extends Component {
 
       </Container>
     )
+  }
+  cardFlip(i) {
+    var flipnew = this.state.flip;
+    flipnew[i] = !flipnew[i];
+    this.setState({flip: flipnew})
   }
   onBack() {
     this.props.navigator.pop()
