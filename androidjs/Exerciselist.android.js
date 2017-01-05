@@ -64,7 +64,8 @@ export default class Exerciselist extends Component {
                         <Text onPress={this.cardFlip.bind(this, i)} style={[]}>view previous</Text>
                       </View>
                       <View>
-                        <Text style={styles.optiontext}>new row</Text>
+                        <Text>{object[1]}</Text>
+                        <View style={styles.circle}></View>
                       </View>
                     </View>
                   </View>
@@ -107,6 +108,12 @@ const styles = StyleSheet.create({
   header: {
     // backgroundColor: '#4A4A4A'
     backgroundColor: 'white'
+  },
+  circle: {
+    width: 50,
+    height: 50,
+    borderRadius: 100/2,
+    backgroundColor: 'red'
   },
   contentcolor: {
     backgroundColor: '#F7F7F7',
