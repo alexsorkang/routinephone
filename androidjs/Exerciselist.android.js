@@ -63,9 +63,12 @@ export default class Exerciselist extends Component {
                         <Text style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
                         <Text onPress={this.cardFlip.bind(this, i)} style={[]}>view previous</Text>
                       </View>
-                      <View>
-                        <Text>{object[1]}</Text>
-                        <View style={styles.circle}></View>
+                      <View style={{flex:1, flexDirection:'row', justifyContent:'space-between'}}>
+                        {Array.from(Array(object[1])).map(function(obj, j) {
+                          return (
+                            <View style={[styles.circle]}></View>
+                            )
+                        }.bind(this))}
                       </View>
                     </View>
                   </View>
@@ -113,7 +116,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 100/2,
-    backgroundColor: 'red'
+    backgroundColor: 'gray'
   },
   contentcolor: {
     backgroundColor: '#F7F7F7',

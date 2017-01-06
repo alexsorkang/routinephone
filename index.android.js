@@ -25,7 +25,7 @@ export default class routinephone extends Component {
   render() {
     return (
         <Navigator
-            initialRoute={{ id: 'daylist', index: 0, data: {name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',5,5],['deadlift',1,5]]]},difficulty:'novice'} }}
+            initialRoute={{ id: 'daylist', index: 0, data: {name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'} }}
             renderScene = {this.renderScene.bind(this)}
             tabLabel='Current'
             onBack={() => {
