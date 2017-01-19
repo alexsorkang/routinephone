@@ -57,13 +57,13 @@ export default class Exerciselist extends Component {
               return(
                 <FlipCard flip={this.state.flip[i]} style={{borderWidth:0}} clickable={false}>
                 <View style={styles.face}>
-                  <View key={i + 'front'} style={{flex:1, flexDirection:'column', padding: 5, paddingBottom: 0}}>
-                    <View style={{height: 100, padding: 5, backgroundColor: 'white', borderWidth: 1, borderColor: "#ddd"}}>
+                  <View key={i + 'front'} style={styles.cardouter}>
+                    <View style={styles.cardinner}>
                       <View style={{flexDirection:'row'}}>
                         <Text style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
                         <Text onPress={this.cardFlip.bind(this, i)} style={[]}>view previous</Text>
                       </View>
-                      <View style={{flex:1, flexDirection:'row', justifyContent:'space-between'}}>
+                      <View style={{flex:1, flexDirection:'row', justifyContent:'space-between', alignItems: 'center'}}>
                         {Array.from(Array(object[1])).map(function(obj, j) {
                           return (
                             <View style={[styles.circle]}></View>
@@ -74,8 +74,8 @@ export default class Exerciselist extends Component {
                   </View>
                 </View>
                 <View style={[styles.back, {borderWidth:0}]}>
-                  <View key={i + 'back'} style={{flex:1, flexDirection:'column', padding: 5, paddingBottom: 0}}> 
-                    <View style={{height: 100, padding: 5, backgroundColor: 'white', borderWidth: 1, borderColor: "#ddd"}}>
+                  <View key={i + 'back'} style={styles.cardouter}> 
+                    <View style={styles.cardinner}>
                       <View style={{flexDirection:'row'}}>
                         <Text style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
                         <Text onPress={this.cardFlip.bind(this, i)} style={[]}>view current</Text>
@@ -113,10 +113,23 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   circle: {
-    width: 50,
-    height: 50,
-    borderRadius: 100/2,
+    width: 40,
+    height: 40,
+    borderRadius: 40/2,
     backgroundColor: 'gray'
+  },
+  cardouter: {
+    flex:1, 
+    flexDirection:'column', 
+    padding: 10, 
+    paddingBottom: 0
+  },
+  cardinner: {
+    height: 100, 
+    padding: 10, 
+    backgroundColor: 'white', 
+    borderWidth: 1, 
+    borderColor: "#ddd"
   },
   contentcolor: {
     backgroundColor: '#F7F7F7',
