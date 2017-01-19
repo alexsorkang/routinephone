@@ -22,10 +22,27 @@ import Daylist from './androidjs/Daylist.android'
 import Newroutine from './androidjs/Newroutine.android.js'
 
 export default class routinephone extends Component {
+  // async set() {
+  //     try {
+  //       await AsyncStorage.setItem('currentexercise', JSON.stringify({name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}));
+  //     } catch (error) {
+  //       // Error saving data
+  //     }
+  //     try {
+  //       var currentexercise = await AsyncStorage.getItem('currentexercise');
+  //       currentexercise = JSON.parse(currentexercise);
+  //       console.log(currentexercise);
+  //       return currentexercise
+  //     } catch (error) {
+  //       // Error retrieving data
+  //     }
+  //   }
   render() {
+    // currentexercise = this.set();
+
     return (
         <Navigator
-            initialRoute={{ id: 'daylist', index: 0, data: {name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'} }}
+            initialRoute={{ id: 'daylist', index: 0, data: {name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}}}
             renderScene = {this.renderScene.bind(this)}
             tabLabel='Current'
             onBack={() => {
@@ -43,7 +60,7 @@ export default class routinephone extends Component {
     var routeid = route.id;
     if (routeid === 'daylist') {
       return (
-        <Daylist navigator={navigator} data={route.data}/>
+        <Daylist navigator={navigator} data={route.data} />
         );
     }
     if (routeid === 'exerciselist') {
@@ -53,17 +70,17 @@ export default class routinephone extends Component {
     }
     if (routeid === 'progress') {
       return (
-        <Progress navigator={navigator}/>
+        <Progress navigator={navigator} data={route.data} />
         );
     }
     if (routeid === 'newroutine') {
       return (
-        <Newroutine navigator={navigator}/>
+        <Newroutine navigator={navigator} data={route.data} />
         );
     }
     if (routeid === 'public') {
       return (
-        <PublicRoutines navigator={navigator}/>
+        <PublicRoutines navigator={navigator} data={route.data} />
         );
     }
   }
