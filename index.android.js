@@ -45,7 +45,8 @@ export default class routinephone extends Component {
     return (
         <Navigator
             // initialRoute={{ id: 'daylist', index: 0, data: {name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}}}
-            initialRoute={{ id: 'daylist', index: 0, data: this.state}}
+            // initialRoute={{ id: 'daylist', index: 0, data: this.state}}
+            initialRoute={{ id: 'daylist', index: 0}}
             renderScene = {this.renderScene.bind(this)}
             tabLabel='Current'
             onBack={() => {
@@ -63,43 +64,43 @@ export default class routinephone extends Component {
     var routeid = route.id;
     if (routeid === 'daylist') {
       return (
-        <Daylist navigator={navigator} data={route.data} />
+        <Daylist navigator={navigator} />
         );
     }
     if (routeid === 'exerciselist') {
       return (
-        <Exerciselist navigator={navigator} data={route.data} />
+        <Exerciselist navigator={navigator} />
         );
     }
     if (routeid === 'progress') {
       return (
-        <Progress navigator={navigator} data={route.data} />
+        <Progress navigator={navigator}  />
         );
     }
     if (routeid === 'newroutine') {
       return (
-        <Newroutine navigator={navigator} data={route.data} />
+        <Newroutine navigator={navigator} />
         );
     }
     if (routeid === 'public') {
       return (
-        <PublicRoutines navigator={navigator} data={route.data} />
+        <PublicRoutines navigator={navigator} />
         );
     }
   }
 }
-        // <Outer data="one"/>
-        // <Outer data="two"/>
-        // <Outer data="three"/>
-class Outer extends Component {
-  render() {
-    return (
-      <Text>
-        {this.props.data}
-      </Text>
-    );
-  }
-}
+//         // <Outer data="one"/>
+//         // <Outer data="two"/>
+//         // <Outer data="three"/>
+// class Outer extends Component {
+//   render() {
+//     return (
+//       <Text>
+//         {this.props.data}
+//       </Text>
+//     );
+//   }
+// }
 
 
 const styles = StyleSheet.create({
