@@ -4,7 +4,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Navigator
+  Navigator,
+  AsyncStorage
 } from 'react-native';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 // import IconSetList from './IconSetList';
@@ -19,6 +20,24 @@ import Newroutine from './Newroutine.android.js'
 import Theme from '../Themes/customtheme.js'
 
 export default class Daylist extends Component {
+
+  constructor() {
+    super();
+    this.state = {routine:{}};
+  }
+  
+  componentDidMount() {
+    this.set().done();
+  }
+
+  async set() {
+    // await AsyncStorage.setItem('currentexercise', JSON.stringify({name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}));
+    currentexercise = await AsyncStorage.getItem('currentexercise');
+    currentexercise = JSON.parse(currentexercise);
+    this.setState(currentexercise);
+    // console.log(this.state)
+  }
+
   render() {
     return (
       <Navigator
@@ -27,7 +46,8 @@ export default class Daylist extends Component {
     )
   }
   renderScene(route, navigator) {
-    var stronglift = this.props.data;
+    // var stronglift = this.props.data;
+    var stronglift = this.state;
     return (
       <Container theme={Theme}>
         <Header style={styles.header}>

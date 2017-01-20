@@ -10,7 +10,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Navigator
+  Navigator,
+  AsyncStorage
 } from 'react-native';
 
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon, List, ListItem, Tabs } from 'native-base';
@@ -22,27 +23,29 @@ import Daylist from './androidjs/Daylist.android'
 import Newroutine from './androidjs/Newroutine.android.js'
 
 export default class routinephone extends Component {
-  // async set() {
-  //     try {
-  //       await AsyncStorage.setItem('currentexercise', JSON.stringify({name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}));
-  //     } catch (error) {
-  //       // Error saving data
-  //     }
-  //     try {
-  //       var currentexercise = await AsyncStorage.getItem('currentexercise');
-  //       currentexercise = JSON.parse(currentexercise);
-  //       console.log(currentexercise);
-  //       return currentexercise
-  //     } catch (error) {
-  //       // Error retrieving data
-  //     }
-  //   }
+  constructor() {
+    super();
+    this.state = {routine:{}};
+  }
+  
+  componentDidMount() {
+    this.set().done();
+  }
+
+  async set() {
+    await AsyncStorage.setItem('currentexercise', JSON.stringify({name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}));
+    // currentexercise = await AsyncStorage.getItem('currentexercise');
+    // currentexercise = JSON.parse(currentexercise);
+    // this.setState(currentexercise);
+    // console.log(this.state)
+  }
+
   render() {
     // currentexercise = this.set();
-
     return (
         <Navigator
-            initialRoute={{ id: 'daylist', index: 0, data: {name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}}}
+            // initialRoute={{ id: 'daylist', index: 0, data: {name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}}}
+            initialRoute={{ id: 'daylist', index: 0, data: this.state}}
             renderScene = {this.renderScene.bind(this)}
             tabLabel='Current'
             onBack={() => {
