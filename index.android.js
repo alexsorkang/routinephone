@@ -33,11 +33,17 @@ export default class routinephone extends Component {
   }
 
   async set() {
-    await AsyncStorage.setItem('currentexercise', JSON.stringify({name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}));
-    // currentexercise = await AsyncStorage.getItem('currentexercise');
-    // currentexercise = JSON.parse(currentexercise);
+    var stronglift = {name:'stronglift 5x5',description:'a beginner program', difficulty:'novice', routine:{split:2, list:[[['bench', 5,5],['rows', 5,5],['squat', 5,5]],[['ohp',5,5],['deadlift',1,5],['squat',5,5]]]}}
+    var startingstr = {name:'starting strength',description:'a beginner program', defiiculty:'novice', routine:{split:2, list:[[['bench', 3,5],['rows', 3,5],['squat', 3,5]],[['ohp',3,5],['deadlift',1,5],['squat', 3,5]]]}}
+    var mylist = {'1': stronglift, '2': startingstr};
+
+    await AsyncStorage.setItem('mylist', JSON.stringify(mylist));
+    // await AsyncStorage.setItem('currentexercise', JSON.stringify({name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}));
+    await AsyncStorage.setItem('currentexercise', JSON.stringify(mylist['2']));
+    
+    // console.log(list)
     // this.setState(currentexercise);
-    // console.log(this.state)
+    // console.log(list)
   }
 
   render() {

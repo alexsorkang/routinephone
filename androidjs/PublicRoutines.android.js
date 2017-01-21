@@ -40,10 +40,15 @@ export default class PublicRoutines extends Component {
             <Icon style={styles.iconcolor} name='ios-menu' />
           </Button>
 
+
+
         </Header>
         <Content style={styles.contentcolor}>
           <Text style={styles.optiontext}>Public page</Text>
+          
         </Content>
+
+
         <Footer>
           <FooterTab style={styles.footer}>
             <Button onPress={this.onCurrent.bind(this)}>

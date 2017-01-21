@@ -32,10 +32,9 @@ export default class Daylist extends Component {
 
   async set() {
     // await AsyncStorage.setItem('currentexercise', JSON.stringify({name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}));
-    currentexercise = await AsyncStorage.getItem('currentexercise');
+    var currentexercise = await AsyncStorage.getItem('currentexercise');
     currentexercise = JSON.parse(currentexercise);
     this.setState(currentexercise);
-    // console.log(this.state)
   }
 
   render() {
@@ -61,7 +60,7 @@ export default class Daylist extends Component {
 
         </Header>
         <Content style={styles.contentcolor}>
-          <List dataArray = {stronglift.routine['list']} renderRow={(exercise) => 
+          <List dataArray = {stronglift.routine.list} renderRow={(exercise) => 
             <ListItem button onPress={this.onForward.bind(this, exercise)}>
               <Text style={styles.optiontext}> dayone {exercise[0][0]} </Text>
             </ListItem>
@@ -92,6 +91,10 @@ export default class Daylist extends Component {
       )
   }
   onForward(exercise) {
+    // console.log(exercise)
+    if (!exercise) {
+      exercise = [];
+    }
     this.props.navigator.push({
       id: 'exerciselist',
       index: 1,
