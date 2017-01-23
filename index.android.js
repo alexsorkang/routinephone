@@ -41,18 +41,13 @@ export default class routinephone extends Component {
     // await AsyncStorage.setItem('currentexercise', JSON.stringify({name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}));
     await AsyncStorage.setItem('currentexercise', JSON.stringify(mylist['2']));
     
-    // console.log(list)
     // this.setState(currentexercise);
-    // console.log(list)
   }
 
   render() {
-    // currentexercise = this.set();
     return (
         <Navigator
-            // initialRoute={{ id: 'daylist', index: 0, data: {name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}}}
-            // initialRoute={{ id: 'daylist', index: 0, data: this.state}}
-            initialRoute={{ id: 'daylist', index: 0}}
+            initialRoute={{ id: 'daylist', index: 0, data: []}}
             renderScene = {this.renderScene.bind(this)}
             tabLabel='Current'
             onBack={() => {
@@ -75,7 +70,7 @@ export default class routinephone extends Component {
     }
     if (routeid === 'exerciselist') {
       return (
-        <Exerciselist navigator={navigator} />
+        <Exerciselist navigator={navigator} data={route.data} />
         );
     }
     if (routeid === 'progress') {
@@ -95,19 +90,6 @@ export default class routinephone extends Component {
     }
   }
 }
-//         // <Outer data="one"/>
-//         // <Outer data="two"/>
-//         // <Outer data="three"/>
-// class Outer extends Component {
-//   render() {
-//     return (
-//       <Text>
-//         {this.props.data}
-//       </Text>
-//     );
-//   }
-// }
-
 
 const styles = StyleSheet.create({
   header: {

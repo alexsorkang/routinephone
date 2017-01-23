@@ -20,49 +20,17 @@ export default class Exerciselist extends Component {
   constructor(props) {
     super(props);
     this.state = {}
-  }
-
-  componentDidMount(){
-    
     var routine;
-    // console.log(this.props.data)
-    // console.log(1)
-    if (this.props.data) {
-      routine = this.props.data;
-    } else {
-      routine = [];
-    }
+    routine = this.props.data;
 
     var arr = []
-    // console.log(routine)
     routine.map(function(object,i) {
       arr.push(false);
     })
-    this.setState = {
+    this.state = {
       flip: arr
-    }
+    } 
   }
-  // componentDidMount() {
-  //   this.set().done();
-  // }
-
-  // async set() {
-  //   var currentexercise = await AsyncStorage.getItem('currentexercise');
-  //   currentexercise = JSON.parse(currentexercise);
-
-  //   // var routine = this.props.data;
-  //   var arr = []
-  //   console.log(routine)
-  //   routine.map(function(object,i) {
-  //     arr.push(false);
-  //   })
-  //   this.setState = {
-  //     flip: arr,
-  //     data: currentexercise.routine.list
-  //   }
-
-  //   this.setState({routine:currentexercise});
-  // }
 
   render() {
     return (
@@ -70,13 +38,6 @@ export default class Exerciselist extends Component {
     )
   }
   renderScene(route, navigator) {
-    // var routine
-    // if (this.props.data) {
-    //   routine = this.props.data;
-    // } else {
-    //   routine = [];
-    // }
-    // console.log(routine)
     return (
       <Container theme={Theme}>
         <Header style={styles.header}>
@@ -94,8 +55,7 @@ export default class Exerciselist extends Component {
 
         <Content style={styles.contentcolor}>          
           <View>
-
-            {this.props.routine.map(function(object, i){
+            {this.props.data.map(function(object, i){
               return(
                 <FlipCard flip={this.state.flip[i]} style={{borderWidth:0}} clickable={false}>
                 <View style={styles.face}>
@@ -133,7 +93,6 @@ export default class Exerciselist extends Component {
                 </FlipCard>
               )}.bind(this)
             )}
-
           </View>
 
         </Content>

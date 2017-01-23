@@ -45,7 +45,6 @@ export default class Daylist extends Component {
     )
   }
   renderScene(route, navigator) {
-    // var stronglift = this.props.data;
     var stronglift = this.state;
     return (
       <Container theme={Theme}>
@@ -91,10 +90,6 @@ export default class Daylist extends Component {
       )
   }
   onForward(exercise) {
-    // console.log(exercise)
-    if (!exercise) {
-      exercise = [];
-    }
     this.props.navigator.push({
       id: 'exerciselist',
       index: 1,
