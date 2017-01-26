@@ -27,8 +27,19 @@ export default class Exerciselist extends Component {
     routine.map(function(object,i) {
       arr.push(false);
     })
+    
+    // { bench: { 1: [0,0,0], 2: [0,0,0], 3: [0,0,0] }, rows: { 1: [0,0,0], 2: [0,0,0], 3: [0,0,0] }, { 1: [0,0,0], 2: [0,0,0], 3: [0,0,0] } }
+
+
+    var exercise = {};
+    routine.map(function(object,i) {
+      for (var x = 0;x<object[];x+=1)
+      exercise[object[0]] = Array(object[1]).fill(object[2])        
+    })
+    console.log(exercise)
     this.state = {
-      flip: arr
+      flip: arr,
+      exercise: {}
     } 
   }
 
@@ -63,7 +74,7 @@ export default class Exerciselist extends Component {
                     <View style={styles.cardinner}>
                       <View style={{flexDirection:'row'}}>
                         <Text style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
-                        <Text onPress={this.cardFlip.bind(this, i)} style={[]}>view previous</Text>
+                        <Text onPress={this.cardFlip.bind(this, i)} style={[]}>previous</Text>
                       </View>
                       <View style={styles.circlecontainer}>
                         {Array.from(Array(object[1])).map(function(obj, j) {
@@ -71,8 +82,6 @@ export default class Exerciselist extends Component {
                             <View style={[styles.circle, styles.doublecenter]}><Text style={styles.circletextcolor}>{object[2]}</Text></View>
                             )
                         }.bind(this))}
-
-
                       </View>
                     </View>
                   </View>
@@ -82,7 +91,7 @@ export default class Exerciselist extends Component {
                     <View style={styles.cardinner}>
                       <View style={{flexDirection:'row'}}>
                         <Text style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
-                        <Text onPress={this.cardFlip.bind(this, i)} style={[]}>view current</Text>
+                        <Text onPress={this.cardFlip.bind(this, i)} style={[]}>back</Text>
                       </View>
                       <View>
                         <Text style={styles.optiontext}>new row</Text>
@@ -93,12 +102,17 @@ export default class Exerciselist extends Component {
                 </FlipCard>
               )}.bind(this)
             )}
+            <View style={styles.padding}>
+              <Button onPress={this.save.bind(this)} block bordered> finish workout </Button>
+            </View>
           </View>
 
         </Content>
 
       </Container>
     )
+  }
+  save() {
   }
   cardFlip(i) {
     var flipnew = this.state.flip;
@@ -114,6 +128,9 @@ const styles = StyleSheet.create({
   header: {
     // backgroundColor: '#4A4A4A'
     backgroundColor: 'white'
+  },
+  padding: {
+    padding: 10
   },
   circle: {
     width: 40,

@@ -4,7 +4,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Navigator
+  Navigator,
+  AsyncStorage
 } from 'react-native';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 // import IconSetList from './IconSetList';
@@ -18,7 +19,24 @@ import Exerciselist from './Exerciselist'
 import Newroutine from './Newroutine.android.js'
 import Theme from '../Themes/customtheme.js'
 
-export default class PublicRoutines extends Component {
+export default class PublicRoutines extends Component { 
+  constructor() {
+    super();
+    // this.state = {routine:{}};
+  }
+  
+  componentDidMount() {
+    this.get().done();
+  }
+
+  async get() {
+    // await AsyncStorage.setItem('currentexercise', JSON.stringify({name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}));
+    var mylist = await AsyncStorage.getItem('mylist');
+    mylist = JSON.parse(mylist);
+    this.setState(mylist);
+    console.log(this.state)
+  }
+
   render() {
     return (
       <Navigator
@@ -44,8 +62,7 @@ export default class PublicRoutines extends Component {
 
         </Header>
         <Content style={styles.contentcolor}>
-          <Text style={styles.optiontext}>Public page</Text>
-          
+
         </Content>
 
 
