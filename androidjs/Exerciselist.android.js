@@ -28,13 +28,21 @@ export default class Exerciselist extends Component {
       arr.push(false);
     })
     
-    // { bench: { 1: [0,0,0], 2: [0,0,0], 3: [0,0,0] }, rows: { 1: [0,0,0], 2: [0,0,0], 3: [0,0,0] }, { 1: [0,0,0], 2: [0,0,0], 3: [0,0,0] } }
 
+    // { bench: { weight: 0, reps: [ 5, 5, 5 ] },
+        // rows: { weight: 0, reps: [ 5, 5, 5 ] }, 
+        // squat: { weight: 0, reps: [ 5, 5, 5 ] } }
 
     var exercise = {};
     routine.map(function(object,i) {
-      for (var x = 0;x<object[];x+=1)
-      exercise[object[0]] = Array(object[1]).fill(object[2])        
+      exercise[object[0]] = {};
+      exercise[object[0]]['weight'] = 0;
+      exercise[object[0]]['reps'] = Array(object[1]).fill(object[2])
+      // for (var x = 0;x<object[1];x+=1) {
+        // exercise[object[0]][x] = object[2];
+        // Array(object[1]).fill(object[2]);
+      // }
+
     })
     console.log(exercise)
     this.state = {
@@ -68,33 +76,33 @@ export default class Exerciselist extends Component {
           <View>
             {this.props.data.map(function(object, i){
               return(
-                <FlipCard flip={this.state.flip[i]} style={{borderWidth:0}} clickable={false}>
-                <View style={styles.face}>
-                  <View key={i + 'front'} style={styles.cardouter}>
-                    <View style={styles.cardinner}>
-                      <View style={{flexDirection:'row'}}>
-                        <Text style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
-                        <Text onPress={this.cardFlip.bind(this, i)} style={[]}>previous</Text>
+                <FlipCard key={i + 'flipcard'} flip={this.state.flip[i]} style={{borderWidth:0}} clickable={false}>
+                <View key={i + 'front1'} style={styles.face}>
+                  <View key={i + 'front2'} style={styles.cardouter}>
+                    <View key={i + 'front3'} style={styles.cardinner}>
+                      <View key={i + 'front4'} style={{flexDirection:'row'}}>
+                        <Text key={i + 'front5'} style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
+                        <Text key={i + 'front6'} onPress={this.cardFlip.bind(this, i)} style={[]}>previous</Text>
                       </View>
-                      <View style={styles.circlecontainer}>
+                      <View key={i + 'front7'} style={styles.circlecontainer}>
                         {Array.from(Array(object[1])).map(function(obj, j) {
                           return (
-                            <View style={[styles.circle, styles.doublecenter]}><Text style={styles.circletextcolor}>{object[2]}</Text></View>
+                            <View key={i + j + 'front8'} style={[styles.circle, styles.doublecenter]}><Text style={styles.circletextcolor}>{object[2]}</Text></View>
                             )
                         }.bind(this))}
                       </View>
                     </View>
                   </View>
                 </View>
-                <View style={[styles.back, {borderWidth:0}]}>
-                  <View key={i + 'back'} style={styles.cardouter}> 
-                    <View style={styles.cardinner}>
-                      <View style={{flexDirection:'row'}}>
-                        <Text style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
-                        <Text onPress={this.cardFlip.bind(this, i)} style={[]}>back</Text>
+                <View key={i + 'back1'} style={[styles.back, {borderWidth:0}]}>
+                  <View key={i + 'back2'} style={styles.cardouter}> 
+                    <View key={i + 'back3'} style={styles.cardinner}>
+                      <View key={i + 'back4'} style={{flexDirection:'row'}}>
+                        <Text key={i + 'back5'} style={[styles.optiontext, {flex:1}]}>{object[0]}</Text>
+                        <Text key={i + 'back6'} onPress={this.cardFlip.bind(this, i)} style={[]}>back</Text>
                       </View>
-                      <View>
-                        <Text style={styles.optiontext}>new row</Text>
+                      <View key={i + 'back7'}>
+                        <Text key={i + 'back8'} style={styles.optiontext}>new row</Text>
                       </View>
                     </View>
                   </View>

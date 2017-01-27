@@ -31,7 +31,6 @@ export default class Daylist extends Component {
   }
 
   async set() {
-    // await AsyncStorage.setItem('currentexercise', JSON.stringify({name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}));
     var currentexercise = await AsyncStorage.getItem('currentexercise');
     currentexercise = JSON.parse(currentexercise);
     this.setState(currentexercise);

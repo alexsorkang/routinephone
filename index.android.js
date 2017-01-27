@@ -33,29 +33,26 @@ export default class routinephone extends Component {
   }
 
   async set() {
-    var stronglift = {name:'stronglift 5x5',description:'a beginner program', difficulty:'novice', routine:{split:2, list:[[['bench', 5,5],['rows', 5,5],['squat', 5,5]],[['ohp',5,5],['deadlift',1,5],['squat',5,5]]]}}
+    var stronglift = {name:'stronglift 5x5',description:'a beginner program', difficulty:'novice', routine:{split:2, list:[[['bench', 5,5],['rows', 5,5],['squat', 5,5],['dips',3,5],['cablerows',3,8]],[['ohp',5,5],['deadlift',1,5],['squat',5,5]]]}}
     var startingstr = {name:'starting strength',description:'a beginner program', defiiculty:'novice', routine:{split:2, list:[[['bench', 3,5],['rows', 3,5],['squat', 3,5]],[['ohp',3,5],['deadlift',1,5],['squat', 3,5]]]}}
     var mylist = {'1': stronglift, '2': startingstr};
-
     await AsyncStorage.setItem('mylist', JSON.stringify(mylist));
-    // await AsyncStorage.setItem('currentexercise', JSON.stringify({name:'stronglift 5x5',description:'test text',shared:true, routine:{'split':2, 'list':[[['bench', 5,5],['rows', 3,8]],[['ohp',8,5],['deadlift',1,5]]]},difficulty:'novice'}));
-    await AsyncStorage.setItem('currentexercise', JSON.stringify(mylist['2']));
+    await AsyncStorage.setItem('currentexercise', JSON.stringify(mylist['1']));
     
-    // this.setState(currentexercise);
   }
 
   render() {
     return (
         <Navigator
-            initialRoute={{ id: 'daylist', index: 0, data: []}}
-            renderScene = {this.renderScene.bind(this)}
-            tabLabel='Current'
-            onBack={() => {
-            if (route.index > 0) {
-                navigator.pop();
-              }
-            }}
-          />
+          initialRoute={{ id: 'daylist', index: 0, data: []}}
+          renderScene = {this.renderScene.bind(this)}
+          tabLabel='Current'
+          onBack={() => {
+          if (route.index > 0) {
+              navigator.pop();
+            }
+          }}
+        />
     )
   }
   onBack() {
