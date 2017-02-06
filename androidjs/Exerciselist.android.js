@@ -80,7 +80,7 @@ export default class Exerciselist extends Component {
                   <View key={i + 'front2'} style={styles.cardouter}>
                     <View key={i + 'front3'} style={styles.cardinner}>
                       <View key={i + 'front4'} style={{flexDirection:'row'}}>
-                        <Text key={i + 'front5'} style={[styles.optiontext, {flex:1}]}>{object[0]} - {this.props.data[i][3][this.props.data[i][3].length-1]}</Text>
+                        <View key={i + 'front5'} style={[{flex:1}]}><Text onPress={this.weight.bind(this,i)} style={[styles.optiontext]}> {object[0]} - {this.props.data[i][3][this.props.data[i][3].length-1]}</Text></View>
                         <Text key={i + 'front6'} onPress={this.cardFlip.bind(this, i)} style={[]}>previous</Text>
                       </View>
                       <View key={i + 'front7'} style={styles.circlecontainer}>
@@ -119,7 +119,11 @@ export default class Exerciselist extends Component {
       </Container>
     )
   }
-  save() {
+  async save() {
+    console.log(5)
+  }
+  weight(i) {
+    console.log(i)
   }
   cardFlip(i) {
     var flipnew = this.state.flip;
